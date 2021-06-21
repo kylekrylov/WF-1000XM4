@@ -554,29 +554,29 @@
                </div>
                <div class="form__main">
                   <div class="form-group form-group-pressed">
-                     <input class="form-control bold " type="text" name="name" placeholder="Имя">
+                     <input class="form-control bold " type="text" name="name" placeholder="Имя" required>
                   </div>
                   <div class="form-group form-group-pressed">
-                     <input class="form-control bold " type="text" name="email" placeholder="E-mail">
+                     <input class="form-control bold " type="text" name="email" placeholder="E-mail" required>
                   </div>
                   <div class="form-group form-group-pressed">
-                     <input class="form-control bold imaskjs__input_tel" type="text" name="phone" placeholder="Телефон" maxlength="18">
+                     <input class="form-control bold imaskjs__input_tel" type="text" name="phone" placeholder="Телефон" maxlength="18" required>
                   </div>
-                  <ul class=" form-buy__checks">
+                  <ul class="form-buy__checks">
                      <li class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" name="subscribe[]" value="mail" checked="" id="buy_p2">
+                        <input type="checkbox" class="custom-control-input" name="subscribe[]" value="mail" checked="" required id="buy_p2">
                         <label class="custom-control-label" for="buy_p2">
                            Подписаться на e-mail рассылки
                         </label>
                      </li>
                      <li class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" name="subscribe[]" value="sms" checked="" id="buy_p3">
+                        <input type="checkbox" class="custom-control-input" name="subscribe[]" value="sms" checked="" required id="buy_p3">
                         <label class="custom-control-label" for="buy_p3">
                            Подписаться на SMS рассылки
                         </label>
                      </li>
                      <li class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" name="agree" checked="" id="buy_p1">
+                        <input type="checkbox" class="custom-control-input" name="agree" checked="" required id="buy_p1">
                         <label class="custom-control-label" for="buy_p1">
                            Согласие на&nbsp;<a class="link" href="https://www.pult.ru/company/soglasie-na-obrabotku-personalnykh-dannykh/" target="_blank">обработку данных</a>
                         </label>
@@ -638,7 +638,17 @@
    
    
    <script type="module" src="assets/js/script.js"></script>
+<script src="https://unpkg.com/imask"></script>
+   <script>
+      let elements = document.getElementsByClassName('imaskjs__input_tel');
+      for (let i = 0; i < elements.length; i++) {
+         new IMask(elements[i], {
+            mask: '+{0}(000)000-00-00',
+         });
+      }
 
+
+   </script>
 </body>
 
 </html>
